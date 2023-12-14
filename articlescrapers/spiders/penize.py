@@ -25,13 +25,13 @@ class PenizeSpider(Spider):
                     callback=self.parse_article,
                 )
 
-        '''next_page = response.css('a.next::attr(href)').get()
+        next_page = response.css('a.next::attr(href)').get()
         if next_page is not None:
             yield Request(
                 response.urljoin(next_page),
                 callback=self.parse,
                 meta={'page': page + 1},
-            )'''
+            )
     
     def parse_article(self, response):
         script = response.css('div#left > script::text').get()

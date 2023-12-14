@@ -27,13 +27,13 @@ class PodnikatelSpider(Spider):
                     meta={'title': article_title},
                 )
 
-        '''next_page = response.css('div.right a.next::attr(href)').get()
+        next_page = response.css('div.right a.next::attr(href)').get()
         if next_page is not None:
             yield Request(
                 response.urljoin(next_page),
                 callback=self.parse,
                 meta={'page': page + 1},
-            )'''
+            )
     
     def parse_article(self, response):
         script = response.xpath('//script[contains(text(), "mainEntityOfPage")]/text()').get()

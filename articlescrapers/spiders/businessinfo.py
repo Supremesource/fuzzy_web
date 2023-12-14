@@ -31,14 +31,14 @@ class BusinessinfoSpider(Spider):
                 meta={'title': article_title, 'date': article_date},
             )
 
-        '''show_more_button_href = data.get('show_more_button')
+        show_more_button_href = data.get('show_more_button')
         if show_more_button_href is not None:
             next_url = 'https://www.businessinfo.cz/clanky/?pg={page}-{page}&ajax=1'.format(page=page+1)
             yield Request(
                 next_url,
                 callback=self.parse,
                 meta={'page': page + 1},
-            )'''
+            )
     
     def parse_article(self, response):
         script = response.css('script.yoast-schema-graph::text').get()

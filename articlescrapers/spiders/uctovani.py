@@ -63,7 +63,7 @@ class UctovaniSpider(Spider):
                     dont_filter=True,
                 )
 
-        '''if articles:
+        if articles:
             next_from = from_ + 12
             yield Request(
                 method='POST',
@@ -76,7 +76,7 @@ class UctovaniSpider(Spider):
                 callback=self.parse,
                 headers=self.headers,
                 dont_filter=True,
-            )'''
+            )
     
     def parse_article(self, response):
         content = response.css('article.article').get()
