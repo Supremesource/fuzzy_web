@@ -8,6 +8,7 @@ class ArticleAdmin(admin.ModelAdmin):
     list_filter = ['website', 'is_last_run']
     list_per_page = 20
     list_display_links = ['title']
+    search_fields = ['website', 'title', 'content']
 
 
 admin.site.register(Article, ArticleAdmin)
